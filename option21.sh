@@ -1,0 +1,3 @@
+#!/bin/bash
+export GOOGLE_GENAI_USE_ENTERPRISE=TRUE
+

@@ -1,0 +1,353 @@
+{
+  "eval_case_results": [
+    {
+      "eval_case_index": 0,
+      "response_candidate_results": [
+        {
+          "response_index": 0,
+          "metric_results": {
+            "custom_response_quality": {
+              "metric_name": "custom_response_quality",
+              "score": 5.0,
+              "explanation": "The user asked a general question about the agent's capabilities. The agent correctly classified this as not shipping-related (as shown in the trace: `\"is_shipping_related\": false`). Consequently, the agent's response clearly and politely states its limitations, specifies the topics it *can* help with, and invites the user to rephrase their query within those boundaries. This is an excellent, accurate, and appropriate response for a specialized agent encountering an out-of-scope general inquiry, demonstrating perfect adherence to its designed purpose.",
+              "rubric_verdicts": null,
+              "raw_output": null,
+              "error_message": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "eval_case_index": 1,
+      "response_candidate_results": [
+        {
+          "response_index": 0,
+          "metric_results": {
+            "custom_response_quality": {
+              "metric_name": "custom_response_quality",
+              "score": 5.0,
+              "explanation": "The agent correctly identified that the user's query about the weather in San Francisco was not related to shipping, as indicated by the `classifier_agent` output (`\"is_shipping_related\": false`). It then appropriately responded by stating its limitations and directing the user to ask questions within its defined scope (shipping-related topics). This is an excellent handling of an out-of-scope query, demonstrating proper functionality and clear communication of its capabilities.",
+              "rubric_verdicts": null,
+              "raw_output": null,
+              "error_message": null
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "summary_metrics": [
+    {
+      "metric_name": "custom_response_quality",
+      "num_cases_total": 2,
+      "num_cases_valid": 2,
+      "num_cases_error": 0,
+      "mean_score": 5.0,
+      "stdev_score": 0.0,
+      "pass_rate": null
+    }
+  ],
+  "win_rates": null,
+  "evaluation_dataset": [
+    {
+      "bigquery_source": null,
+      "gcs_source": null,
+      "eval_cases": [
+        {
+          "prompt": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello, what can you help me with?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "responses": [
+            {
+              "response": {
+                "parts": [
+                  {
+                    "media_resolution": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "file_data": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "inline_data": null,
+                    "text": "I'm sorry, but I can only answer questions related to shipping (such as rates, tracking, delivery, or returns). Please let me know if you have a question on those topics!",
+                    "thought": null,
+                    "thought_signature": null,
+                    "video_metadata": null,
+                    "tool_call": null,
+                    "tool_response": null,
+                    "part_metadata": null
+                  }
+                ],
+                "role": "model"
+              }
+            }
+          ],
+          "reference": null,
+          "system_instruction": null,
+          "conversation_history": null,
+          "rubric_groups": null,
+          "eval_case_id": "greeting",
+          "intermediate_events": null,
+          "agent_info": null,
+          "agent_data": {
+            "agents": {
+              "customer_support_workflow": {
+                "agent_id": "customer_support_workflow",
+                "agent_type": "Workflow",
+                "description": "Classifies customer queries into shipping or unrelated, routing to appropriate handlers.",
+                "instruction": null,
+                "tools": [],
+                "sub_agents": []
+              }
+            },
+            "turns": [
+              {
+                "turn_index": 0,
+                "turn_id": "turn_0",
+                "events": [
+                  {
+                    "author": "classifier_agent",
+                    "content": {
+                      "parts": [
+                        {
+                          "media_resolution": null,
+                          "code_execution_result": null,
+                          "executable_code": null,
+                          "file_data": null,
+                          "function_call": null,
+                          "function_response": null,
+                          "inline_data": null,
+                          "text": "{\"is_shipping_related\": false}",
+                          "thought": null,
+                          "thought_signature": null,
+                          "video_metadata": null,
+                          "tool_call": null,
+                          "tool_response": null,
+                          "part_metadata": null
+                        }
+                      ],
+                      "role": "model"
+                    },
+                    "event_time": null,
+                    "state_delta": null,
+                    "active_tools": null
+                  },
+                  {
+                    "author": "customer_support_workflow",
+                    "content": {
+                      "parts": [
+                        {
+                          "media_resolution": null,
+                          "code_execution_result": null,
+                          "executable_code": null,
+                          "file_data": null,
+                          "function_call": null,
+                          "function_response": null,
+                          "inline_data": null,
+                          "text": "I'm sorry, but I can only answer questions related to shipping (such as rates, tracking, delivery, or returns). Please let me know if you have a question on those topics!",
+                          "thought": null,
+                          "thought_signature": null,
+                          "video_metadata": null,
+                          "tool_call": null,
+                          "tool_response": null,
+                          "part_metadata": null
+                        }
+                      ],
+                      "role": "model"
+                    },
+                    "event_time": null,
+                    "state_delta": null,
+                    "active_tools": null
+                  }
+                ]
+              }
+            ]
+          },
+          "user_scenario": null
+        },
+        {
+          "prompt": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "What's the weather like in San Francisco?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "responses": [
+            {
+              "response": {
+                "parts": [
+                  {
+                    "media_resolution": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "file_data": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "inline_data": null,
+                    "text": "I'm sorry, but I can only answer questions related to shipping (such as rates, tracking, delivery, or returns). Please let me know if you have a question on those topics!",
+                    "thought": null,
+                    "thought_signature": null,
+                    "video_metadata": null,
+                    "tool_call": null,
+                    "tool_response": null,
+                    "part_metadata": null
+                  }
+                ],
+                "role": "model"
+              }
+            }
+          ],
+          "reference": null,
+          "system_instruction": null,
+          "conversation_history": null,
+          "rubric_groups": null,
+          "eval_case_id": "weather_query",
+          "intermediate_events": null,
+          "agent_info": null,
+          "agent_data": {
+            "agents": {
+              "customer_support_workflow": {
+                "agent_id": "customer_support_workflow",
+                "agent_type": "Workflow",
+                "description": "Classifies customer queries into shipping or unrelated, routing to appropriate handlers.",
+                "instruction": null,
+                "tools": [],
+                "sub_agents": []
+              }
+            },
+            "turns": [
+              {
+                "turn_index": 0,
+                "turn_id": "turn_0",
+                "events": [
+                  {
+                    "author": "classifier_agent",
+                    "content": {
+                      "parts": [
+                        {
+                          "media_resolution": null,
+                          "code_execution_result": null,
+                          "executable_code": null,
+                          "file_data": null,
+                          "function_call": null,
+                          "function_response": null,
+                          "inline_data": null,
+                          "text": "{\"is_shipping_related\": false}",
+                          "thought": null,
+                          "thought_signature": null,
+                          "video_metadata": null,
+                          "tool_call": null,
+                          "tool_response": null,
+                          "part_metadata": null
+                        }
+                      ],
+                      "role": "model"
+                    },
+                    "event_time": null,
+                    "state_delta": null,
+                    "active_tools": null
+                  },
+                  {
+                    "author": "customer_support_workflow",
+                    "content": {
+                      "parts": [
+                        {
+                          "media_resolution": null,
+                          "code_execution_result": null,
+                          "executable_code": null,
+                          "file_data": null,
+                          "function_call": null,
+                          "function_response": null,
+                          "inline_data": null,
+                          "text": "I'm sorry, but I can only answer questions related to shipping (such as rates, tracking, delivery, or returns). Please let me know if you have a question on those topics!",
+                          "thought": null,
+                          "thought_signature": null,
+                          "video_metadata": null,
+                          "tool_call": null,
+                          "tool_response": null,
+                          "part_metadata": null
+                        }
+                      ],
+                      "role": "model"
+                    },
+                    "event_time": null,
+                    "state_delta": null,
+                    "active_tools": null
+                  }
+                ]
+              }
+            ]
+          },
+          "user_scenario": null
+        }
+      ],
+      "eval_dataset_df": null,
+      "candidate_name": null
+    }
+  ],
+  "metadata": {
+    "candidate_names": [
+      "candidate_1"
+    ],
+    "dataset_name": null,
+    "dataset_id": null,
+    "creation_timestamp": "2026-07-02T10:01:15.859683Z",
+    "dataset": [
+      {
+        "prompt_display_text": "Hello, what can you help me with?",
+        "prompt_raw_json": "{\n  \"parts\": [\n    {\n      \"text\": \"Hello, what can you help me with?\"\n    }\n  ],\n  \"role\": \"user\"\n}",
+        "reference": "",
+        "reference_raw_json": "",
+        "response_display_text": "I'm sorry, but I can only answer questions related to shipping (such as rates, tracking, delivery, or returns). Please let me know if you have a question on those topics!",
+        "response_raw_json": "{\n  \"parts\": [\n    {\n      \"text\": \"I'm sorry, but I can only answer questions related to shipping (such as rates, tracking, delivery, or returns). Please let me know if you have a question on those topics!\"\n    }\n  ],\n  \"role\": \"model\"\n}",
+        "intermediate_events": null,
+        "agent_data": "{\"agents\": {\"customer_support_workflow\": {\"agent_id\": \"customer_support_workflow\", \"agent_type\": \"Workflow\", \"description\": \"Classifies customer queries into shipping or unrelated, routing to appropriate handlers.\", \"tools\": [], \"sub_agents\": []}}, \"turns\": [{\"turn_index\": 0, \"turn_id\": \"turn_0\", \"events\": [{\"author\": \"classifier_agent\", \"content\": {\"parts\": [{\"text\": \"{\\\"is_shipping_related\\\": false}\"}], \"role\": \"model\"}}, {\"author\": \"customer_support_workflow\", \"content\": {\"parts\": [{\"text\": \"I'm sorry, but I can only answer questions related to shipping (such as rates, tracking, delivery, or returns). Please let me know if you have a question on those topics!\"}], \"role\": \"model\"}}]}]}"
+      },
+      {
+        "prompt_display_text": "What's the weather like in San Francisco?",
+        "prompt_raw_json": "{\n  \"parts\": [\n    {\n      \"text\": \"What's the weather like in San Francisco?\"\n    }\n  ],\n  \"role\": \"user\"\n}",
+        "reference": "",
+        "reference_raw_json": "",
+        "response_display_text": "I'm sorry, but I can only answer questions related to shipping (such as rates, tracking, delivery, or returns). Please let me know if you have a question on those topics!",
+        "response_raw_json": "{\n  \"parts\": [\n    {\n      \"text\": \"I'm sorry, but I can only answer questions related to shipping (such as rates, tracking, delivery, or returns). Please let me know if you have a question on those topics!\"\n    }\n  ],\n  \"role\": \"model\"\n}",
+        "intermediate_events": null,
+        "agent_data": "{\"agents\": {\"customer_support_workflow\": {\"agent_id\": \"customer_support_workflow\", \"agent_type\": \"Workflow\", \"description\": \"Classifies customer queries into shipping or unrelated, routing to appropriate handlers.\", \"tools\": [], \"sub_agents\": []}}, \"turns\": [{\"turn_index\": 0, \"turn_id\": \"turn_0\", \"events\": [{\"author\": \"classifier_agent\", \"content\": {\"parts\": [{\"text\": \"{\\\"is_shipping_related\\\": false}\"}], \"role\": \"model\"}}, {\"author\": \"customer_support_workflow\", \"content\": {\"parts\": [{\"text\": \"I'm sorry, but I can only answer questions related to shipping (such as rates, tracking, delivery, or returns). Please let me know if you have a question on those topics!\"}], \"role\": \"model\"}}]}]}"
+      }
+    ]
+  },
+  "agent_info": null
+}
